@@ -53,8 +53,8 @@ export default class NFTaddTJS {
     public addVideo (id: string, scaleX: number,scaleY: number,scaleZ: number) {
        const root = this.root
         console.log("dataInThis::::",scaleX,scaleY,scaleZ)
-
         const ARVideo: HTMLVideoElement = document.getElementById(id) as HTMLVideoElement;
+        ARVideo.play()
        const texture = new VideoTexture(ARVideo as HTMLVideoElement)
        const mat = new MeshStandardMaterial({ color: 0xbbbbff, map: texture })
        const planeGeom = new PlaneGeometry(1, 1, 1, 1)
@@ -62,7 +62,7 @@ export default class NFTaddTJS {
         plane.scale.set(scaleX, scaleY, scaleZ)
         document.addEventListener('getNFTData', (ev: any) => {
             console.log("dataInThis",ev)
-            ARVideo.play()
+
             var msg = ev.detail
             plane.position.y = (msg.height / msg.dpi * 2.54 * 10) / 2.0
             plane.position.x = (msg.width / msg.dpi * 2.54 * 10) / 2.0

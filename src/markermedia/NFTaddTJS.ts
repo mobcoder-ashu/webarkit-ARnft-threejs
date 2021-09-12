@@ -52,10 +52,11 @@ export default class NFTaddTJS {
     }
     public addVideo (id: string, scaleX: number,scaleY: number,scaleZ: number) {
        const root = this.root
-       const ARVideo: HTMLVideoElement = document.getElementById(id) as HTMLVideoElement;
+        console.log("dataInThis::::",scaleX,scaleY,scaleZ)
+
+        const ARVideo: HTMLVideoElement = document.getElementById(id) as HTMLVideoElement;
        const texture = new VideoTexture(ARVideo as HTMLVideoElement)
        const mat = new MeshStandardMaterial({ color: 0xbbbbff, map: texture })
-       ARVideo.play()
        const planeGeom = new PlaneGeometry(1, 1, 1, 1)
        const plane = new Mesh(planeGeom, mat)
         plane.scale.set(scaleX, scaleY, scaleZ)

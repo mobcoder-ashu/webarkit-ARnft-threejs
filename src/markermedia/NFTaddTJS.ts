@@ -59,11 +59,13 @@ export default class NFTaddTJS {
        const planeGeom = new PlaneGeometry(1, 1, 1, 1)
        const plane = new Mesh(planeGeom, mat)
         plane.scale.set(scaleX, scaleY, scaleZ)
-       document.addEventListener('getNFTData', (ev: any) => {
-           var msg = ev.detail
-           plane.position.y = (msg.height / msg.dpi * 2.54 * 10) / 2.0
-           plane.position.x = (msg.width / msg.dpi * 2.54 * 10) / 2.0
-       })
+        document.addEventListener('getNFTData', (ev: any) => {
+            console.log("dataInThis",ev)
+            ARVideo.play()
+            var msg = ev.detail
+            plane.position.y = (msg.height / msg.dpi * 2.54 * 10) / 2.0
+            plane.position.x = (msg.width / msg.dpi * 2.54 * 10) / 2.0
+        })
        this.root.add(plane)
     }
 }
